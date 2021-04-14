@@ -1,4 +1,4 @@
-module.exports = (roman) => {
+module.exports = roman => {
 	let conversionList = {
 		I: 1,
 		V: 5,
@@ -10,7 +10,7 @@ module.exports = (roman) => {
 	};
 
 	let romanCharacters = roman.split('');
-	let convertedNumber = 0;
+	let result = 0;
 
 	for (let i = 0; i < romanCharacters.length; i++) {
 		let currentRoman = romanCharacters[i];
@@ -20,11 +20,11 @@ module.exports = (roman) => {
 		let nextDecimal = nextRoman ? conversionList[nextRoman] : 0;
 
 		if (currentDecimal < nextDecimal) {
-			convertedNumber -= currentDecimal;
+			result -= currentDecimal;
 		} else {
-			convertedNumber += currentDecimal;
+			result += currentDecimal;
 		}
 	}
 
-	return convertedNumber;
+	return result;
 };
